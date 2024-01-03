@@ -1,2 +1,4 @@
-# OpenProjReiuji
-Open-Source Project Reiuji. File storage.
+# 仓库使用说明
+本仓库与Private仓库Project Reiuji相关，同时作为部分文件的网络存储。
+你可以自由使用该仓库内已公开的资源，在Project Reiuji开源文档完成前，请自己探索该仓库内素材的使用方式。
+因不当使用本仓库内素材造成的法律纠纷，与本人无关。
