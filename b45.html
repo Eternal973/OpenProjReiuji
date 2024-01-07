@@ -11,7 +11,7 @@
     <input type="text" id="aimeIdInput" placeholder="请输入好友号">
     <button onclick="fetchPng()">查询b45</button>
     <button onclick="getAimeId()">获取好友号</button><br>
-    <input type="checkbox" name="chkBoxRem" id="chkBoxRem" onclick="checkBoxOnClick();"/> <label for="chkBoxRem">下次访问时自动填充好友号</label><br><br>
+    <input type="checkbox" name="chkBoxRem" id="chkBoxRem"/> <label for="chkBoxRem">下次访问时自动填充好友号</label><br><br>
     <img id="b45Image" alt="b45Image" style="filter: drop-shadow(rgb(249,254,184) 0px 0px 5px); border-radius: 20px;">
 
     <script>
@@ -35,6 +35,7 @@
                     console.error('请求错误：', error);
                     alert('请求出错，请稍后重试！');
                 });
+                saveAimeId();
         }
         function getAimeId(){
             alert('点击确定进入Nageki-Net，选择Rival List查看好友号')
@@ -54,13 +55,13 @@
             if(arr !=null){return unescape(arr[2])};
             return null;
             }
-        function pushFormInfo(){
+        function readAimeId(){
             if(GetCookie("remembered")==="true"){
             document.getElementById("aimeIdInput").value=GetCookie("aimeId");
-            document.getElementById("chkBoxRem").checked=(bolRemembered==="true");
+            document.getElementById("chkBoxRem").checked=(GetCookie("remembered")==="true");
             }
             }
-        function checkBoxOnClick(){
+        function saveAimeId(){
             if(document.getElementById("chkBoxRem").checked==true) {
             SetCookie("aimeId",document.getElementById("aimeIdInput").value,365);
             SetCookie("remembered",document.getElementById("chkBoxRem").checked,365);
@@ -70,6 +71,6 @@
             }
             }
     </script>
-    <script language="JavaScript" type="text/javascript">pushFormInfo();</script>
+    <script language="JavaScript" type="text/javascript">readAimeId();</script>
 </body>
 </html>
