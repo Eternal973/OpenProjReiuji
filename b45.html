@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<!--💞 感谢NAGEKI-NET与mikobot~ 💞
+💞 without love by Eternal973~ 💞-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nageki-Net b45</title>
+</head>
+<body>
+    <input type="text" id="aimeIdInput" placeholder="请输入好友号">
+    <button onclick="fetchPng()">查询b45</button>
+    <button onclick="getAimeId()">获取好友号</button><br>
+    <input type="checkbox" name="chkBoxRem" id="chkBoxRem" onclick="checkBoxOnClick();"/> <label for="chkBoxRem">下次访问时自动填充好友号</label><br><br>
+    <img id="b45Image" alt="b45Image" style="filter: drop-shadow(rgb(249,254,184) 0px 0px 5px); border-radius: 20px;">
+
+    <script>
+        function fetchPng() {
+            const aimeId = document.getElementById('aimeIdInput').value;
+            if (!aimeId) {
+                alert('请输入好友号！');
+                return;
+            }
+            fetch(`https://tencent.mikobot.moe/nageki/query/img?userId=${aimeId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.base64 && data.userId) {
+                        const imageSrc = `data:image/png;base64,${data.base64}`;
+                        document.getElementById('b45Image').src = imageSrc;
+                    } else {
+                        alert('获取数据失败！');
+                    }
+                })
+                .catch(error => {
+                    console.error('请求错误：', error);
+                    alert('请求出错，请稍后重试！');
+                });
+        }
+        function getAimeId(){
+            alert('点击确定进入Nageki-Net，选择Rival List查看好友号')
+            window.open('https://ongeki.moe/web/ongeki/rival');
+        }
+        function SetCookie(sName, sValue,iExpireDays){
+            if (iExpireDays){
+            var dExpire = new Date();
+            dExpire.setTime(dExpire.getTime()+parseInt(iExpireDays*24*60*60*1000));
+            document.cookie = sName + "=" + escape(sValue) + "; expires=" + dExpire.toGMTString();
+            }else{
+            document.cookie = sName + "=" + escape(sValue);
+            }
+            }
+        function GetCookie(sName){
+            var arr = document.cookie.match(new RegExp("(^| )"+sName+"=([^;]*)(;|$)"));
+            if(arr !=null){return unescape(arr[2])};
+            return null;
+            }
+        function pushFormInfo(){
+            var strAimeId=GetCookie("aimeIdInput");
+            var bolRemembered=GetCookie("remembered");
+            if(bolRemembered==="true"){
+            document.getElementById("aimeIdInput").value=strAimeId;
+            document.getElementById("chkBoxRem").checked=(bolRemembered==="true");
+            }
+            }
+        function checkBoxOnClick(){
+            if(document.getElementById("chkBoxRem").checked==true) {
+            var strAimeId=document.getElementById("aimeIdInput").value;
+            var bolRemembered=document.getElementById("chkBoxRem").checked;
+            SetCookie("aimeId",strAimeId,365);
+            SetCookie("remembered",bolRemembered,365);
+            }
+            else{
+            SetCookie("aimeId","");
+            SetCookie("remembered",false);
+            }
+            }
+    </script>
+    <script language="JavaScript" type="text/javascript">pushFormInfo();</script>
+</body>
+</html>
