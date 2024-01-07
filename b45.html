@@ -55,21 +55,16 @@
             return null;
             }
         function pushFormInfo(){
-            var strAimeId=GetCookie("aimeIdInput");
-            var bolRemembered=GetCookie("remembered");
-            if(bolRemembered==="true"){
-            document.getElementById("aimeIdInput").value=strAimeId;
+            if(GetCookie("remembered")==="true"){
+            document.getElementById("aimeIdInput").value=GetCookie("aimeId");
             document.getElementById("chkBoxRem").checked=(bolRemembered==="true");
             }
             }
         function checkBoxOnClick(){
             if(document.getElementById("chkBoxRem").checked==true) {
-            var strAimeId=document.getElementById("aimeIdInput").value;
-            var bolRemembered=document.getElementById("chkBoxRem").checked;
-            SetCookie("aimeId",strAimeId,365);
-            SetCookie("remembered",bolRemembered,365);
-            }
-            else{
+            SetCookie("aimeId",document.getElementById("aimeIdInput").value,365);
+            SetCookie("remembered",document.getElementById("chkBoxRem").checked,365);
+            }else{
             SetCookie("aimeId","");
             SetCookie("remembered",false);
             }
