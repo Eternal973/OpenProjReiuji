@@ -8,3 +8,5 @@
 | 标题 | 地址 | 功能 |
 | --- | --- | --- |
 | Nageki-Net b45 | [reiuji.原神启动.store/b45](https://reiuji.原神启动.store/b45) | 独立使用[NAGEKI-NET](https://nageki-net.com)的B45成绩图功能 |
+
+## 973师傅可能会跑路，但绝对不会删库
