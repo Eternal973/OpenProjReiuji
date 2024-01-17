@@ -14,7 +14,8 @@
     <noscript><h1>请允许JavaScript以继续使用口牙！</h1></noscript>
     <input type="text" id="aimeIdInput" placeholder="请输入好友号">
     <button onclick="drawB45Image()">更新b45图片</button>
-    <button onclick="getAimeId()">获取好友号</button><br>
+    <button onclick="getAimeId()">获取好友号</button>
+    <p id="running" style="display:none; color: darkred;">更新中，请勿重复点击……</p><br>
     <input type="checkbox" name="chkBoxRem" id="chkBoxRem" /> <label for="chkBoxRem">下次访问时自动填充好友号</label><br><br>
 <!-- 哼，我要用暴力base64图片闪瞎你的眼口牙！ -->
     <img id="logo" alt="logo"
@@ -50,6 +51,7 @@
         }
         async function drawB45Image() {
             try {
+                document.getElementById("running").style.display = "inline";
                 const rawSrc = await fetchPng();
                 const rawImage = new Image();
                 rawImage.src = rawSrc;
@@ -62,6 +64,7 @@
                     ctx.drawImage(logo, 397, 1260, 683, 116);
                     dataUrl = canvas.toDataURL("image/jpeg", 1);
                     document.getElementById("b45Image").src = dataUrl;
+                    document.getElementById("running").style.display = "none";
                 };
                 saveAimeId();
             } catch (error) {
