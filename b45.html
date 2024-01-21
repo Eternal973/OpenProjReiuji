@@ -101,7 +101,7 @@
                 const value = parseInt(match[2], 10);
                 paraArray.push([key, value]);
             }
-            if (paraArray[1][1] != 0) {
+            if (para != "") {
                 document.getElementById("aimeIdInput").value = paraArray[1][1];
                 document.getElementById("chkBoxRem").checked = 0;
                 drawB45Image();
