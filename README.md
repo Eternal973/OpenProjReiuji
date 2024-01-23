@@ -7,6 +7,8 @@
 本仓库网页均在root目录下，本仓库域名为*reiuji.原神启动.store*，目前开放的网页如下：</br>
 | 标题 | 地址 | 功能 |
 | --- | --- | --- |
-| Nageki-Net b45 | [reiuji.原神启动.store/b45](https://reiuji.原神启动.store/b45) | 独立使用[NAGEKI-NET](https://nageki-net.com)的B45成绩图功能 |
+| Nageki-Net b45 | [reiuji.原神启动.store/b45](https://reiuji.原神启动.store/b45) | 免登录独立使用[NAGEKI-NET](https://nageki-net.com)的B45成绩图功能 |
+| 旧版Nageki-Net b45 | [reiuji.原神启动.store/b45-old](https://reiuji.原神启动.store/b45-old) | 功能同上，但使用aimeId而非AccessCode |
+
 
 ## 973师傅可能会跑路，但绝对不会删库
