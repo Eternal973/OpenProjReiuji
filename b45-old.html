@@ -106,19 +106,19 @@
                 document.getElementById("chkBoxRem").checked = 0;
                 drawB45Image();
             }
-            else if (GetCookie("remembered") === "true") {
+            else if (GetCookie("rememAimeId") === "true") {
                 document.getElementById("aimeIdInput").value = GetCookie("aimeId");
-                document.getElementById("chkBoxRem").checked = (GetCookie("remembered") === "true");
+                document.getElementById("chkBoxRem").checked = (GetCookie("rememAimeId") === "true");
                 drawB45Image();
             }
         }
         function saveAimeId() {
             if (document.getElementById("chkBoxRem").checked == true) {
                 SetCookie("aimeId", document.getElementById("aimeIdInput").value, 365);
-                SetCookie("remembered", document.getElementById("chkBoxRem").checked, 365);
+                SetCookie("rememAimeId", document.getElementById("chkBoxRem").checked, 365);
             } else {
                 SetCookie("aimeId", "");
-                SetCookie("remembered", false);
+                SetCookie("rememAimeId", false);
             }
         }
     </script>

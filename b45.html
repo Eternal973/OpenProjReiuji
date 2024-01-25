@@ -134,19 +134,19 @@
                 document.getElementById("chkBoxRem").checked = 0;
                 drawB45Image();
             }
-            else if (GetCookie("remembered") === "true") {
+            else if (GetCookie("rememAccessCode") === "true") {
                 document.getElementById("accessCodeInput").value = GetCookie("accessCode");
-                document.getElementById("chkBoxRem").checked = (GetCookie("remembered") === "true");
+                document.getElementById("chkBoxRem").checked = (GetCookie("rememAccessCode") === "true");
                 drawB45Image();
             }
         }
         function saveaccessCode() {
             if (document.getElementById("chkBoxRem").checked == true) {
                 SetCookie("accessCode", document.getElementById("accessCodeInput").value, 365);
-                SetCookie("remembered", document.getElementById("chkBoxRem").checked, 365);
+                SetCookie("rememAccessCode", document.getElementById("chkBoxRem").checked, 365);
             } else {
                 SetCookie("accessCode", "");
-                SetCookie("remembered", false);
+                SetCookie("rememAccessCode", false);
             }
         }
     </script>
