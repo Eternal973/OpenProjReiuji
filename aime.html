@@ -42,17 +42,11 @@
                         if (data.id && data.extId) {
                             aimeId = data.extId;
                             console.log(aimeId);
-                            fetch(`https://nageki.nananana.net/OngekiServlet/GetUserDataApi`, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({ "nonce_": -114514191, "userId": aimeId })
-                            })
+                            fetch(`https://nageki.nananana.net/api/game/ongeki/profile?aimeId=${aimeId}`)
                                 .then(response => response.json())
                                 .then(data => {
-                                    if (data.userId && data.userData) {
-                                        console.log(data.userData.userName+`登录成功`)
+                                    if (data.userId && data.userName) {
+                                        console.log(data.userName+`登录成功`)
                                     } else {
                                         alert('获取数据失败！');
                                     }
