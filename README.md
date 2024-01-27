@@ -11,6 +11,6 @@
 | 旧版Nageki-Net b45 | [reiuji.原神启动.store/b45-old](https://reiuji.原神启动.store/b45-old) | 功能同上，但使用aimeId而非AccessCode |
 
 *以上两个网页已停止更新，如有bug请清除cookies和浏览器缓存。* 
-
+| Reiuji ID | [reiuji.原神启动.store/aime](https://reiuji.原神启动.store/aime) | 在支持Reiuji ID的客户端中获取通行证 |
 
 ## 973师傅可能会跑路，但绝对不会删库
