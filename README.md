@@ -10,7 +10,7 @@
 | Nageki-Net b45 | [reiuji.原神启动.store/b45](https://reiuji.原神启动.store/b45) | 免登录独立使用[NAGEKI-NET](https://nageki-net.com)的B45成绩图功能 | OK |
 | 旧版Nageki-Net b45 | [reiuji.原神启动.store/b45-old](https://reiuji.原神启动.store/b45-old) | 功能同上，但使用aimeId而非AccessCode | OK |
 | | *以上两个网页已停止更新* | *如有bug请清除cookies和浏览器缓存。* |
-| Reigeki ID | [reiuji.原神启动.store/aime](https://reiuji.原神启动.store/aime) | 在支持Reigeki ID的mu3客户端中获取通行证 | DEV |
+| Reigeki ID | [reiuji.原神启动.store/aime](https://reiuji.原神启动.store/aime) | 在支持Reigeki ID的mu3客户端中获取通行证 | TEST |
 | Reiuji b50 | [reiuji.原神启动.store/b50](https://reiuji.原神启动.store/b50) | 使用浏览器查询[Diving-Fish](https://www.diving-fish.com/maimaidx/prober)的b50表 | DEV |
 | Reiuji b40 | [reiuji.原神启动.store/b50](https://reiuji.原神启动.store/b40) | 使用浏览器查询[Diving-Fish](https://www.diving-fish.com/maimaidx/prober)的b40表 | DEV |
 | Reigeki Guide | [reiuji.原神启动.store/guide](https://reiuji.原神启动.store/guide) | Reigeki（一种mu3控制器）的标准及构建指南 | 懒得写 |
