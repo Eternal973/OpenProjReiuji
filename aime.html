@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<!--        💞 感谢NAGEKI-NET~ 💞
+           💞 感谢讯飞星火大模型~ 💞
+💞 OpenSource without love by Eternal973~ 💞-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reigeki ID</title>
+</head>
+
+<body>
+    <noscript>
+        <h1>请允许JavaScript以继续使用口牙！</h1>
+    </noscript>
+    <p id="running" style="display:none; color: darkred;">正在获取玩家档案……</p><br>
+    <script>
+        function readAimeId() {
+            document.getElementById("running").style.display = "inline";
+            const para = location.search;
+            const paraRegex = /([^=]+)=([^&]+)/g;
+            let match;
+            const paraArray = [];
+            while ((match = paraRegex.exec(para)) !== null) {
+                const key = match[1];
+                const value = match[2];
+                paraArray.push([key, value]);
+            }
+            if (para != "") {
+                accessCode = paraArray[0][1];
+                fetch('https://nageki.nananana.net/api/sega/aime/getByAccessCode', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 'accessCode': accessCode })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        let aimeId;
+                        if (data.id && data.extId) {
+                            aimeId = data.extId;
+                            console.log(aimeId);
+                            fetch(`http://nageki.nananana.net:80/OngekiServlet/GetUserDataApi`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ "nonce_": -114514191, "userId": aimeId })
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.userId && data.userData) {
+                                        console.log(data.userData.userName+`登录成功`)
+                                    } else {
+                                        alert('获取数据失败！');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('请求错误：', error);
+                                    alert('请求出错，请稍后重试！');
+                                });
+                        } else {
+                            alert('获取id异常，请检查是否为Nageki Net注册卡！');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('请求错误：', error);
+                        alert('请求出错，请检查是否为Nageki Net注册卡！');
+                    });
+            }
+            else {
+                alert('二维码异常，请检查客户端是否支持Reigeki ID！');
+            }
+            document.getElementById("running").style.display = "none";
+        }
+    </script>
+    <script language="JavaScript" type="text/javascript">readAimeId();</script>
+</body>
