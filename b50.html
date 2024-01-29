@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B50 by Reiuji</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            height: 160px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <label><input type="radio" name=options
+            onclick="document.getElementById('QQ').style.display='none'; document.getElementById('Username').style.display='inline'">
+        使用用户名查询</label>
+    <label><input type="radio" name=options
+            onclick="document.getElementById('Username').style.display='none';document.getElementById('QQ').style.display='inline'">
+        使用QQ查询</label>
+    <br>
+    <div id="QQ" style="display: none;">
+        <input type="text" id="qqInput" placeholder="请输入QQ号">
+        <button onclick="getRawByQQ()">提交</button>
+    </div>
+    <div id="Username" style="display: none;">
+        <input type="text" id="usernameInput" placeholder="请输入用户名">
+        <button onclick="b50ByUsername()">提交</button>
+        <a>(<a href="javascript:alert('在Diving-Fish查分器设置的用户名');">?</a>)</a>
+    </div>
+    <p id="running" style="display:none; color: darkred;">更新中，请勿重复点击……</p><br>
+    <table id="fullTable" style="text-align: center; column-width: 200px; border-style: solid;">
+        <tr>
+            <td colspan="2" rowspan="2">
+            </td>
+            <td style="height: 16px;">
+            </td>
+            <td colspan="2" style="height: 16px;">Reiuji B50</td>
+        </tr>
+        <tr>
+            <td style="height: 64px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+            </td>
+        </tr>
+        <tr>
+            </td>
+            <td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            </td>
+            <td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+
+
+    <script>
+        async function b50ByUsername() {
+
+        }
+        function getRawByQQ() {
+            const qq = document.getElementById('qqInput').value;
+            if (!qq) {
+                alert('请输入QQ号！');
+                return;
+            }
+            fetch('https://www.diving-fish.com/api/maimaidxprober/query/player', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'qq': qq, 'b50': `True` })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nickname && data.rating) {
+                        index = 1;
+                        data.charts.dx.forEach(item => {
+
+
+
+                        });
+                    } else {
+                        alert('获取数据失败！');
+                    }
+                })
+                .catch(error => {
+                    console.error('请求错误：', error);
+                    alert('请求出错，请稍后重试！');
+                });
+        }
+    </script>
+</body>
+
+</html>
