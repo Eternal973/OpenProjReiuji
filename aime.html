@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td>服务器</td>
-            <td colspan="3"><a href="https://ongeki.moe" style="color: inherit; text-decoration: none;">Nageki-Net</a>
+            <td colspan="3"><a href="https://nageki-net.com" style="color: inherit; text-decoration: none;">Nageki-Net</a>
             </td>
         </tr>
         <tr>
@@ -76,7 +76,7 @@
             }
             if (para != "") {
                 accessCode = paraArray[0][1];
-                fetch('https://nageki.nananana.net/api/sega/aime/getByAccessCode', {
+                fetch('https://nageki-net.com/api/sega/aime/getByAccessCode', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -90,7 +90,7 @@
                             aimeId = data.extId;
                             luid = data.luid;
                             regTime = new Date(data.registerTime).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                            fetch(`https://nageki.nananana.net/api/game/ongeki/profile?aimeId=${aimeId}`)
+                            fetch(`https://nageki-net.com/api/game/ongeki/profile?aimeId=${aimeId}`)
                                 .then(response => response.json())
                                 .then(data => {
                                     if (data.userId && data.userName) {
