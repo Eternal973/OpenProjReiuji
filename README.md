@@ -15,5 +15,5 @@
 | Reiuji b50 | [reiuji.原神启动.store/b50](https://reiuji.原神启动.store/b50) | 使用浏览器查询[Diving-Fish](https://www.diving-fish.com/maimaidx/prober)的b50表 | DEV |
 | Reiuji b40 | [reiuji.原神启动.store/b50](https://reiuji.原神启动.store/b40) | 使用浏览器查询[Diving-Fish](https://www.diving-fish.com/maimaidx/prober)的b40表 | DEV |
 | Reigeki Guide | [reiuji.原神启动.store/guide](https://reiuji.原神启动.store/guide) | Reigeki（一种mu3控制器）的标准及构建指南 | 懒得写 |
-
+## 啊啊啊好不爽我要狠狠学然后成为Angular大神啊
 ## 973师傅可能会跑路，但绝对不会删库
